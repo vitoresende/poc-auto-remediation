@@ -1,0 +1,900 @@
+{
+  "level": "error",
+  "exception": {
+    "values": [
+      {
+        "mechanism": {
+          "type": "generic",
+          "handled": true
+        },
+        "module": null,
+        "type": "AttributeError",
+        "value": "'NoneType' object has no attribute 'strip'",
+        "stacktrace": {
+          "frames": [
+            {
+              "filename": "dummy_app/main.py",
+              "abs_path": "/home/vresende/Documents/vitoresende-dev/poc-auto-remediation/src/dummy_app/main.py",
+              "function": "trigger_breadcrumb_flood",
+              "module": "dummy_app.main",
+              "lineno": 352,
+              "pre_context": [
+                "                \"cpf\": \"321.654.987-99\",",
+                "            },",
+                "            request_payload=batch_payload,",
+                "        )",
+                "        try:"
+              ],
+              "context_line": "            reconcile_settlement_batch(batch_payload)",
+              "post_context": [
+                "        except Exception as exc:",
+                "            return _capture_and_build_response(exc, scenario_slug, raise_unhandled)",
+                "",
+                "    return JSONResponse(status_code=200, content={\"status\": \"unexpected_success\"})"
+              ],
+              "vars": {
+                "request": {
+                  "type": "'http'",
+                  "http_version": "'1.1'",
+                  "method": "'POST'",
+                  "path": "'/api/scenarios/breadcrumb-flood'",
+                  "raw_path": "b'/api/scenarios/breadcrumb-flood'",
+                  "root_path": "''",
+                  "scheme": "'http'",
+                  "query_string": "b'user_email=test.user@enterprise.io'",
+                  "headers": [
+                    [
+                      "b'host'",
+                      "b'testserver'"
+                    ],
+                    [
+                      "b'content-length'",
+                      "b'0'"
+                    ],
+                    [
+                      "b'accept'",
+                      "b'*/*'"
+                    ],
+                    [
+                      "b'accept-encoding'",
+                      "b'gzip, deflate'"
+                    ],
+                    [
+                      "b'connection'",
+                      "b'keep-alive'"
+                    ],
+                    [
+                      "b'user-agent'",
+                      "b'testclient'"
+                    ],
+                    [
+                      "b'authorization'",
+                      "b'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature'"
+                    ],
+                    [
+                      "b'x-customer-cpf'",
+                      "b'123.456.789-00'"
+                    ],
+                    [
+                      "b'sentry-trace'",
+                      "b'52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9'"
+                    ],
+                    [
+                      "b'baggage'",
+                      "b'sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000'"
+                    ]
+                  ],
+                  "client": [
+                    "'testclient'",
+                    "50000"
+                  ]
+                },
+                "raise_unhandled": "False",
+                "scenario_slug": "'breadcrumb_flood_settlement'",
+                "batch_payload": {
+                  "batch_id": "'BATCH-SETTLE-20261117'",
+                  "customer_context": {
+                    "full_name": "'Robert Alexander Vance'",
+                    "email": "'robert.vance@corporate.example.com'",
+                    "cpf": "'321.654.987-99'",
+                    "ssn": "'689-12-3341'",
+                    "bearer_token": "'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt'"
+                  },
+                  "transactions": [
+                    {
+                      "tx_id": "'TX-990011'",
+                      "amount": "5840.0",
+                      "card_number": "'4111-2222-3333-4444'",
+                      "settlement_code": "None"
+                    }
+                  ]
+                },
+                "scope": "<Scope id=0x787867b23b40 name=None type=ScopeType.CURRENT>",
+                "exc": "AttributeError(\"'NoneType' object has no attribute 'strip'\")"
+              },
+              "in_app": true
+            },
+            {
+              "filename": "dummy_app/services/auth_billing_service.py",
+              "abs_path": "/home/vresende/Documents/vitoresende-dev/poc-auto-remediation/src/dummy_app/services/auth_billing_service.py",
+              "function": "reconcile_settlement_batch",
+              "module": "dummy_app.services.auth_billing_service",
+              "lineno": 135,
+              "pre_context": [
+                "    \"\"\"Entry point (Level 1 of call stack) for batch reconciliation.\"\"\"",
+                "    batch_id = str(batch_payload.get(\"batch_id\", \"BATCH-000\"))",
+                "    customer_context = batch_payload.get(\"customer_context\", {})",
+                "    transactions = batch_payload.get(\"transactions\", [])",
+                ""
+              ],
+              "context_line": "    return _audit_customer_entries(",
+              "post_context": [
+                "        batch_id=batch_id,",
+                "        customer_context=customer_context,",
+                "        transactions=transactions,",
+                "    )"
+              ],
+              "vars": {
+                "batch_payload": {
+                  "batch_id": "'BATCH-SETTLE-20261117'",
+                  "customer_context": {
+                    "full_name": "'Robert Alexander Vance'",
+                    "email": "'robert.vance@corporate.example.com'",
+                    "cpf": "'321.654.987-99'",
+                    "ssn": "'689-12-3341'",
+                    "bearer_token": "'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt'"
+                  },
+                  "transactions": [
+                    {
+                      "tx_id": "'TX-990011'",
+                      "amount": "5840.0",
+                      "card_number": "'4111-2222-3333-4444'",
+                      "settlement_code": "None"
+                    }
+                  ]
+                },
+                "batch_id": "'BATCH-SETTLE-20261117'",
+                "customer_context": {
+                  "full_name": "'Robert Alexander Vance'",
+                  "email": "'robert.vance@corporate.example.com'",
+                  "cpf": "'321.654.987-99'",
+                  "ssn": "'689-12-3341'",
+                  "bearer_token": "'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt'"
+                },
+                "transactions": [
+                  {
+                    "tx_id": "'TX-990011'",
+                    "amount": "5840.0",
+                    "card_number": "'4111-2222-3333-4444'",
+                    "settlement_code": "None"
+                  }
+                ]
+              },
+              "in_app": true
+            },
+            {
+              "filename": "dummy_app/services/auth_billing_service.py",
+              "abs_path": "/home/vresende/Documents/vitoresende-dev/poc-auto-remediation/src/dummy_app/services/auth_billing_service.py",
+              "function": "_audit_customer_entries",
+              "module": "dummy_app.services.auth_billing_service",
+              "lineno": 126,
+              "pre_context": [
+                "        ),",
+                "        level=\"info\",",
+                "        data=customer_context,",
+                "    )",
+                ""
+              ],
+              "context_line": "    return _extract_primary_transaction(transactions, customer_context)",
+              "post_context": [
+                "",
+                "",
+                "def reconcile_settlement_batch(batch_payload: dict[str, Any]) -> dict[str, Any]:",
+                "    \"\"\"Entry point (Level 1 of call stack) for batch reconciliation.\"\"\"",
+                "    batch_id = str(batch_payload.get(\"batch_id\", \"BATCH-000\"))"
+              ],
+              "vars": {
+                "batch_id": "'BATCH-SETTLE-20261117'",
+                "customer_context": {
+                  "full_name": "'Robert Alexander Vance'",
+                  "email": "'robert.vance@corporate.example.com'",
+                  "cpf": "'321.654.987-99'",
+                  "ssn": "'689-12-3341'",
+                  "bearer_token": "'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt'"
+                },
+                "transactions": [
+                  {
+                    "tx_id": "'TX-990011'",
+                    "amount": "5840.0",
+                    "card_number": "'4111-2222-3333-4444'",
+                    "settlement_code": "None"
+                  }
+                ],
+                "poll_attempt": "35"
+              },
+              "in_app": true
+            },
+            {
+              "filename": "dummy_app/services/auth_billing_service.py",
+              "abs_path": "/home/vresende/Documents/vitoresende-dev/poc-auto-remediation/src/dummy_app/services/auth_billing_service.py",
+              "function": "_extract_primary_transaction",
+              "module": "dummy_app.services.auth_billing_service",
+              "lineno": 89,
+              "pre_context": [
+                "            \"bearer_token\": customer_context.get(\"bearer_token\"),",
+                "        },",
+                "    )",
+                "",
+                "    # BUG: raw_settlement_code is None when settlement is still pending confirmation"
+              ],
+              "context_line": "    normalized_code = raw_settlement_code.strip().upper()",
+              "post_context": [
+                "",
+                "    return {",
+                "        \"transaction_id\": primary_tx.get(\"tx_id\"),",
+                "        \"settlement_code\": normalized_code,",
+                "        \"amount\": primary_tx.get(\"amount\", 0.0),"
+              ],
+              "vars": {
+                "transactions": [
+                  {
+                    "tx_id": "'TX-990011'",
+                    "amount": "5840.0",
+                    "card_number": "'4111-2222-3333-4444'",
+                    "settlement_code": "None"
+                  }
+                ],
+                "customer_context": {
+                  "full_name": "'Robert Alexander Vance'",
+                  "email": "'robert.vance@corporate.example.com'",
+                  "cpf": "'321.654.987-99'",
+                  "ssn": "'689-12-3341'",
+                  "bearer_token": "'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt'"
+                },
+                "primary_tx": {
+                  "tx_id": "'TX-990011'",
+                  "amount": "5840.0",
+                  "card_number": "'4111-2222-3333-4444'",
+                  "settlement_code": "None"
+                },
+                "customer_cpf": "'321.654.987-99'",
+                "customer_email": "'robert.vance@corporate.example.com'",
+                "raw_settlement_code": "None"
+              },
+              "in_app": true
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "event_id": "b7f9459451324f39a3bd539e21978794",
+  "timestamp": "2026-11-17T20:21:04.064954Z",
+  "contexts": {
+    "http_request_pii": {
+      "url": "http://testserver/api/scenarios/breadcrumb-flood?user_email=test.user@enterprise.io",
+      "method": "POST",
+      "headers": {
+        "host": "testserver",
+        "content-length": "0",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate",
+        "connection": "keep-alive",
+        "user-agent": "testclient",
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature",
+        "x-customer-cpf": "123.456.789-00",
+        "sentry-trace": "52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9",
+        "baggage": "sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
+      },
+      "query_params": {
+        "user_email": "test.user@enterprise.io"
+      },
+      "raw_body": {
+        "batch_id": "BATCH-SETTLE-20261117",
+        "customer_context": {
+          "full_name": "Robert Alexander Vance",
+          "email": "robert.vance@corporate.example.com",
+          "cpf": "321.654.987-99",
+          "ssn": "689-12-3341",
+          "bearer_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt"
+        },
+        "transactions": [
+          {
+            "tx_id": "TX-990011",
+            "amount": 5840.0,
+            "card_number": "4111-2222-3333-4444",
+            "settlement_code": null
+          }
+        ]
+      }
+    },
+    "trace": {
+      "trace_id": "52fe942b8da2455d8b6af77ba02ceaa8",
+      "span_id": "80ac0743dccdc27a",
+      "parent_span_id": "82707abe80e3d7a9",
+      "dynamic_sampling_context": {
+        "trace_id": "52fe942b8da2455d8b6af77ba02ceaa8",
+        "environment": "sandbox",
+        "release": "dummy-app@0.1.0",
+        "public_key": "00000000000000000000000000000000",
+        "sample_rand": "0.863488"
+      }
+    },
+    "runtime": {
+      "name": "CPython",
+      "version": "3.12.10",
+      "build": "3.12.10 (main, Oct 17 2025, 16:34:02) [GCC 11.4.0]"
+    }
+  },
+  "user": {
+    "id": "usr_90123",
+    "username": "robert.vance",
+    "email": "robert.vance@corporate.example.com",
+    "ip_address": "189.10.22.105",
+    "cpf": "321.654.987-99"
+  },
+  "transaction": "dummy_app.main.trigger_breadcrumb_flood",
+  "transaction_info": {
+    "source": "component"
+  },
+  "tags": {
+    "scenario_slug": "breadcrumb_flood_settlement",
+    "poc_package": "package_1_dummy_app",
+    "customer_cpf": "321.654.987-99"
+  },
+  "breadcrumbs": {
+    "values": [
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #1/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 1,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062245Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #2/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 2,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062256Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #3/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 3,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062263Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #4/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 4,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062275Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #5/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 5,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062283Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #6/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 6,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062290Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #7/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 7,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062298Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #8/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 8,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062305Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #9/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 9,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062312Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #10/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 10,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062319Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #11/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 11,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062332Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #12/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 12,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062341Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #13/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 13,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062349Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #14/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 14,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062357Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #15/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 15,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062369Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #16/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 16,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062378Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #17/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 17,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062386Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #18/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 18,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062394Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #19/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 19,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062403Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #20/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 20,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062411Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #21/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 21,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062419Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #22/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 22,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062427Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #23/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 23,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062435Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #24/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 24,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062443Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #25/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 25,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062451Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #26/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 26,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062459Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #27/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 27,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062467Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #28/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 28,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062476Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #29/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 29,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062486Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #30/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 30,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062494Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #31/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 31,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062504Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #32/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 32,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062512Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #33/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 33,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062521Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #34/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 34,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062529Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.polling.noise",
+        "message": "[Poll #35/35] Waiting for bank clearing lock on batch BATCH-SETTLE-20261117",
+        "level": "debug",
+        "data": {
+          "attempt": 35,
+          "batch_id": "BATCH-SETTLE-20261117",
+          "status": "WAITING_LOCK"
+        },
+        "timestamp": "2026-11-17T20:21:04.062538Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.pii_audit",
+        "message": "Auditing batch BATCH-SETTLE-20261117 for robert.vance@corporate.example.com CPF=321.654.987-99 SSN=689-12-3341",
+        "level": "info",
+        "data": {
+          "full_name": "Robert Alexander Vance",
+          "email": "robert.vance@corporate.example.com",
+          "cpf": "321.654.987-99",
+          "ssn": "689-12-3341",
+          "bearer_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt"
+        },
+        "timestamp": "2026-11-17T20:21:04.062548Z",
+        "type": "default"
+      },
+      {
+        "category": "ledger.settlement",
+        "message": "Normalizing settlement_code for CPF 321.654.987-99 (robert.vance@corporate.example.com) on card 4111-2222-3333-4444",
+        "level": "warning",
+        "data": {
+          "customer_cpf": "321.654.987-99",
+          "customer_email": "robert.vance@corporate.example.com",
+          "card_number": "4111-2222-3333-4444",
+          "bearer_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt"
+        },
+        "timestamp": "2026-11-17T20:21:04.062560Z",
+        "type": "default"
+      }
+    ]
+  },
+  "extra": {
+    "sys.argv": [
+      "/home/vresende/Documents/vitoresende-dev/poc-auto-remediation/.venv/bin/pytest",
+      "-v"
+    ]
+  },
+  "modules": {
+    "certifi": "2026.10.23",
+    "pydantic_core": "2.50.4",
+    "h11": "0.16.0",
+    "ruff": "0.7.4",
+    "pygments": "2.21.0",
+    "httpcore": "1.0.9",
+    "python-dotenv": "1.2.4",
+    "pyyaml": "6.0.3",
+    "urllib3": "2.8.0",
+    "idna": "3.20",
+    "pip": "26.2.1",
+    "uvicorn": "0.32.1",
+    "watchfiles": "1.3.0",
+    "annotated-types": "0.8.0",
+    "typing_extensions": "4.16.0",
+    "sniffio": "1.3.1",
+    "poc-auto-remediation": "0.1.0",
+    "pydantic": "2.14.3",
+    "anyio": "4.16.0",
+    "httptools": "0.9.0",
+    "sentry-sdk": "2.75.0",
+    "uvloop": "0.23.0",
+    "pluggy": "1.7.0",
+    "packaging": "26.3",
+    "iniconfig": "2.3.1",
+    "click": "8.5.1",
+    "pytest": "8.4.2",
+    "typing-inspection": "0.4.5",
+    "starlette": "0.46.2",
+    "websockets": "16.1.1",
+    "httpx": "0.27.2",
+    "fastapi": "0.115.14"
+  },
+  "request": {
+    "method": "POST",
+    "headers": {
+      "host": "testserver",
+      "content-length": "0",
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "testclient",
+      "authorization": "[Filtered]",
+      "x-customer-cpf": "123.456.789-00",
+      "sentry-trace": "52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9",
+      "baggage": "sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
+    },
+    "query_string": "user_email=test.user@enterprise.io",
+    "url": "http://testserver/api/scenarios/breadcrumb-flood",
+    "env": {
+      "REMOTE_ADDR": "testclient"
+    },
+    "cookies": {}
+  },
+  "release": "dummy-app@0.1.0",
+  "environment": "sandbox",
+  "server_name": "lnb032854cps",
+  "sdk": {
+    "name": "sentry.python.fastapi",
+    "version": "2.75.0",
+    "packages": [
+      {
+        "name": "pypi:sentry-sdk",
+        "version": "2.75.0"
+      }
+    ],
+    "integrations": [
+      "argv",
+      "atexit",
+      "dedupe",
+      "excepthook",
+      "fastapi",
+      "httpx",
+      "logging",
+      "modules",
+      "starlette",
+      "stdlib",
+      "threading"
+    ]
+  },
+  "platform": "python",
+  "_meta": {
+    "request": {
+      "headers": {
+        "authorization": {
+          "": {
+            "rem": [
+              [
+                "!config",
+                "s"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

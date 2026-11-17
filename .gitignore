@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Environment variables
+.env
+.env.*
+
+# Testing & linting caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Dynamic timestamped fixture captures (keep deterministic fixtures/sentry_*.json versioned)
+fixtures/captured/*.json
+!fixtures/captured/.gitkeep
+
+# IDE
+.vscode/
+.idea/

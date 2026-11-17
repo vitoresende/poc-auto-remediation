@@ -1,0 +1,376 @@
+{
+  "level": "error",
+  "exception": {
+    "values": [
+      {
+        "mechanism": {
+          "type": "generic",
+          "handled": true
+        },
+        "module": null,
+        "type": "TypeError",
+        "value": "'NoneType' object is not subscriptable",
+        "stacktrace": {
+          "frames": [
+            {
+              "filename": "dummy_app/main.py",
+              "abs_path": "/home/vresende/Documents/vitoresende-dev/poc-auto-remediation/src/dummy_app/main.py",
+              "function": "trigger_discount_bug",
+              "module": "dummy_app.main",
+              "lineno": 197,
+              "pre_context": [
+                "                \"cpf\": \"123.456.789-00\",",
+                "            },",
+                "            request_payload=order_payload,",
+                "        )",
+                "        try:"
+              ],
+              "context_line": "            apply_promotional_discount(order_payload)",
+              "post_context": [
+                "        except Exception as exc:",
+                "            return _capture_and_build_response(exc, scenario_slug, raise_unhandled)",
+                "",
+                "    return JSONResponse(status_code=200, content={\"status\": \"unexpected_success\"})",
+                ""
+              ],
+              "vars": {
+                "request": {
+                  "type": "'http'",
+                  "http_version": "'1.1'",
+                  "method": "'POST'",
+                  "path": "'/api/scenarios/discount-bug'",
+                  "raw_path": "b'/api/scenarios/discount-bug'",
+                  "root_path": "''",
+                  "scheme": "'http'",
+                  "query_string": "b'user_email=test.user@enterprise.io'",
+                  "headers": [
+                    [
+                      "b'host'",
+                      "b'testserver'"
+                    ],
+                    [
+                      "b'content-length'",
+                      "b'0'"
+                    ],
+                    [
+                      "b'accept'",
+                      "b'*/*'"
+                    ],
+                    [
+                      "b'accept-encoding'",
+                      "b'gzip, deflate'"
+                    ],
+                    [
+                      "b'connection'",
+                      "b'keep-alive'"
+                    ],
+                    [
+                      "b'user-agent'",
+                      "b'testclient'"
+                    ],
+                    [
+                      "b'authorization'",
+                      "b'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature'"
+                    ],
+                    [
+                      "b'x-customer-cpf'",
+                      "b'123.456.789-00'"
+                    ],
+                    [
+                      "b'sentry-trace'",
+                      "b'52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9'"
+                    ],
+                    [
+                      "b'baggage'",
+                      "b'sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000'"
+                    ]
+                  ],
+                  "client": [
+                    "'testclient'",
+                    "50000"
+                  ]
+                },
+                "raise_unhandled": "False",
+                "scenario_slug": "'discount_none_bug'",
+                "order_payload": {
+                  "order_id": "'ORD-2026-9981'",
+                  "subtotal": "459.9",
+                  "discount": "None",
+                  "customer": {
+                    "full_name": "'Jane Marie Doe'",
+                    "email": "'jane.doe@enterprise.io'",
+                    "cpf": "'123.456.789-00'",
+                    "phone": "'+1-415-555-0198'"
+                  },
+                  "payment_card": {
+                    "holder": "'JANE M DOE'",
+                    "number": "'4532-7788-9900-1234'",
+                    "cvv": "'842'",
+                    "expiration": "'09/29'"
+                  }
+                },
+                "scope": "<Scope id=0x787867b21740 name=None type=ScopeType.CURRENT>",
+                "exc": "TypeError(\"'NoneType' object is not subscriptable\")"
+              },
+              "in_app": true
+            },
+            {
+              "filename": "dummy_app/services/checkout_service.py",
+              "abs_path": "/home/vresende/Documents/vitoresende-dev/poc-auto-remediation/src/dummy_app/services/checkout_service.py",
+              "function": "apply_promotional_discount",
+              "module": "dummy_app.services.checkout_service",
+              "lineno": 39,
+              "pre_context": [
+                "",
+                "    subtotal = float(order_payload.get(\"subtotal\", 0.0))",
+                "    discount_block = order_payload[\"discount\"]",
+                "",
+                "    # BUG: discount_block can be None when no coupon is applied by the user"
+              ],
+              "context_line": "    discount_percentage = float(discount_block[\"percentage\"])",
+              "post_context": [
+                "    discount_amount = round(subtotal * (discount_percentage / 100.0), 2)",
+                "    final_total = round(subtotal - discount_amount, 2)",
+                "",
+                "    return {",
+                "        \"customer_email\": customer_email,"
+              ],
+              "vars": {
+                "order_payload": {
+                  "order_id": "'ORD-2026-9981'",
+                  "subtotal": "459.9",
+                  "discount": "None",
+                  "customer": {
+                    "full_name": "'Jane Marie Doe'",
+                    "email": "'jane.doe@enterprise.io'",
+                    "cpf": "'123.456.789-00'",
+                    "phone": "'+1-415-555-0198'"
+                  },
+                  "payment_card": {
+                    "holder": "'JANE M DOE'",
+                    "number": "'4532-7788-9900-1234'",
+                    "cvv": "'842'",
+                    "expiration": "'09/29'"
+                  }
+                },
+                "customer": {
+                  "full_name": "'Jane Marie Doe'",
+                  "email": "'jane.doe@enterprise.io'",
+                  "cpf": "'123.456.789-00'",
+                  "phone": "'+1-415-555-0198'"
+                },
+                "payment_card": {
+                  "holder": "'JANE M DOE'",
+                  "number": "'4532-7788-9900-1234'",
+                  "cvv": "'842'",
+                  "expiration": "'09/29'"
+                },
+                "customer_email": "'jane.doe@enterprise.io'",
+                "customer_cpf": "'123.456.789-00'",
+                "card_number": "'4532-7788-9900-1234'",
+                "card_cvv": "'842'",
+                "subtotal": "459.9",
+                "discount_block": "None"
+              },
+              "in_app": true
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "event_id": "714c7045755c4eaa8718085731362515",
+  "timestamp": "2026-11-17T20:21:03.939121Z",
+  "contexts": {
+    "http_request_pii": {
+      "url": "http://testserver/api/scenarios/discount-bug?user_email=test.user@enterprise.io",
+      "method": "POST",
+      "headers": {
+        "host": "testserver",
+        "content-length": "0",
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate",
+        "connection": "keep-alive",
+        "user-agent": "testclient",
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature",
+        "x-customer-cpf": "123.456.789-00",
+        "sentry-trace": "52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9",
+        "baggage": "sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
+      },
+      "query_params": {
+        "user_email": "test.user@enterprise.io"
+      },
+      "raw_body": {
+        "order_id": "ORD-2026-9981",
+        "subtotal": 459.9,
+        "discount": null,
+        "customer": {
+          "full_name": "Jane Marie Doe",
+          "email": "jane.doe@enterprise.io",
+          "cpf": "123.456.789-00",
+          "phone": "+1-415-555-0198"
+        },
+        "payment_card": {
+          "holder": "JANE M DOE",
+          "number": "4532-7788-9900-1234",
+          "cvv": "842",
+          "expiration": "09/29"
+        }
+      }
+    },
+    "trace": {
+      "trace_id": "52fe942b8da2455d8b6af77ba02ceaa8",
+      "span_id": "bc80a1fa3e22bf44",
+      "parent_span_id": "82707abe80e3d7a9",
+      "dynamic_sampling_context": {
+        "trace_id": "52fe942b8da2455d8b6af77ba02ceaa8",
+        "environment": "sandbox",
+        "release": "dummy-app@0.1.0",
+        "public_key": "00000000000000000000000000000000",
+        "sample_rand": "0.863488"
+      }
+    },
+    "runtime": {
+      "name": "CPython",
+      "version": "3.12.10",
+      "build": "3.12.10 (main, Oct 17 2025, 16:34:02) [GCC 11.4.0]"
+    }
+  },
+  "user": {
+    "id": "usr_88412",
+    "username": "jane.doe",
+    "email": "jane.doe@enterprise.io",
+    "ip_address": "187.45.122.91",
+    "cpf": "123.456.789-00"
+  },
+  "transaction": "dummy_app.main.trigger_discount_bug",
+  "transaction_info": {
+    "source": "component"
+  },
+  "tags": {
+    "scenario_slug": "discount_none_bug",
+    "poc_package": "package_1_dummy_app",
+    "customer_cpf": "123.456.789-00"
+  },
+  "breadcrumbs": {
+    "values": [
+      {
+        "category": "checkout.validation",
+        "message": "Validating checkout cart for customer CPF 123.456.789-00 (jane.doe@enterprise.io)",
+        "level": "info",
+        "data": {
+          "customer_cpf": "123.456.789-00",
+          "customer_email": "jane.doe@enterprise.io",
+          "card_pan": "4532-7788-9900-1234",
+          "card_cvv": "842"
+        },
+        "timestamp": "2026-11-17T20:21:03.937294Z",
+        "type": "default"
+      }
+    ]
+  },
+  "extra": {
+    "sys.argv": [
+      "/home/vresende/Documents/vitoresende-dev/poc-auto-remediation/.venv/bin/pytest",
+      "-v"
+    ]
+  },
+  "modules": {
+    "certifi": "2026.10.23",
+    "pydantic_core": "2.50.4",
+    "h11": "0.16.0",
+    "ruff": "0.7.4",
+    "pygments": "2.21.0",
+    "httpcore": "1.0.9",
+    "python-dotenv": "1.2.4",
+    "pyyaml": "6.0.3",
+    "urllib3": "2.8.0",
+    "idna": "3.20",
+    "pip": "26.2.1",
+    "uvicorn": "0.32.1",
+    "watchfiles": "1.3.0",
+    "annotated-types": "0.8.0",
+    "typing_extensions": "4.16.0",
+    "sniffio": "1.3.1",
+    "poc-auto-remediation": "0.1.0",
+    "pydantic": "2.14.3",
+    "anyio": "4.16.0",
+    "httptools": "0.9.0",
+    "sentry-sdk": "2.75.0",
+    "uvloop": "0.23.0",
+    "pluggy": "1.7.0",
+    "packaging": "26.3",
+    "iniconfig": "2.3.1",
+    "click": "8.5.1",
+    "pytest": "8.4.2",
+    "typing-inspection": "0.4.5",
+    "starlette": "0.46.2",
+    "websockets": "16.1.1",
+    "httpx": "0.27.2",
+    "fastapi": "0.115.14"
+  },
+  "request": {
+    "method": "POST",
+    "headers": {
+      "host": "testserver",
+      "content-length": "0",
+      "accept": "*/*",
+      "accept-encoding": "gzip, deflate",
+      "connection": "keep-alive",
+      "user-agent": "testclient",
+      "authorization": "[Filtered]",
+      "x-customer-cpf": "123.456.789-00",
+      "sentry-trace": "52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9",
+      "baggage": "sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
+    },
+    "query_string": "user_email=test.user@enterprise.io",
+    "url": "http://testserver/api/scenarios/discount-bug",
+    "env": {
+      "REMOTE_ADDR": "testclient"
+    },
+    "cookies": {}
+  },
+  "release": "dummy-app@0.1.0",
+  "environment": "sandbox",
+  "server_name": "lnb032854cps",
+  "sdk": {
+    "name": "sentry.python.fastapi",
+    "version": "2.75.0",
+    "packages": [
+      {
+        "name": "pypi:sentry-sdk",
+        "version": "2.75.0"
+      }
+    ],
+    "integrations": [
+      "argv",
+      "atexit",
+      "dedupe",
+      "excepthook",
+      "fastapi",
+      "httpx",
+      "logging",
+      "modules",
+      "starlette",
+      "stdlib",
+      "threading"
+    ]
+  },
+  "platform": "python",
+  "_meta": {
+    "request": {
+      "headers": {
+        "authorization": {
+          "": {
+            "rem": [
+              [
+                "!config",
+                "s"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}
