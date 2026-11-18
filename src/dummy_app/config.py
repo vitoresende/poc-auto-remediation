@@ -1,9 +1,13 @@
-import os
 from dataclasses import dataclass, field
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DEFAULT_FIXTURES_DIR = BASE_DIR / "fixtures"
+
+load_dotenv(BASE_DIR / ".env")
 
 
 @dataclass

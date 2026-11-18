@@ -78,11 +78,11 @@
                     ],
                     [
                       "b'sentry-trace'",
-                      "b'52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9'"
+                      "b'1b1058eb75b649d6a782e11655727794-815a71613cd582f3'"
                     ],
                     [
                       "b'baggage'",
-                      "b'sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000'"
+                      "b'sentry-trace_id=1b1058eb75b649d6a782e11655727794,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000'"
                     ]
                   ],
                   "client": [
@@ -109,7 +109,7 @@
                     "expiration": "'09/29'"
                   }
                 },
-                "scope": "<Scope id=0x787867b21740 name=None type=ScopeType.CURRENT>",
+                "scope": "<Scope id=0x7df27bf3e040 name=None type=ScopeType.CURRENT>",
                 "exc": "TypeError(\"'NoneType' object is not subscriptable\")"
               },
               "in_app": true
@@ -179,8 +179,8 @@
       }
     ]
   },
-  "event_id": "714c7045755c4eaa8718085731362515",
-  "timestamp": "2026-11-17T20:21:03.939121Z",
+  "event_id": "262d2ef12d8d41f5bd5719daed0d6084",
+  "timestamp": "2026-11-18T11:46:14.797287Z",
   "contexts": {
     "http_request_pii": {
       "url": "http://testserver/api/scenarios/discount-bug?user_email=test.user@enterprise.io",
@@ -194,8 +194,8 @@
         "user-agent": "testclient",
         "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature",
         "x-customer-cpf": "123.456.789-00",
-        "sentry-trace": "52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9",
-        "baggage": "sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
+        "sentry-trace": "1b1058eb75b649d6a782e11655727794-815a71613cd582f3",
+        "baggage": "sentry-trace_id=1b1058eb75b649d6a782e11655727794,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
       },
       "query_params": {
         "user_email": "test.user@enterprise.io"
@@ -219,15 +219,15 @@
       }
     },
     "trace": {
-      "trace_id": "52fe942b8da2455d8b6af77ba02ceaa8",
-      "span_id": "bc80a1fa3e22bf44",
-      "parent_span_id": "82707abe80e3d7a9",
+      "trace_id": "1b1058eb75b649d6a782e11655727794",
+      "span_id": "b02d6dd7976847f5",
+      "parent_span_id": "815a71613cd582f3",
       "dynamic_sampling_context": {
-        "trace_id": "52fe942b8da2455d8b6af77ba02ceaa8",
+        "trace_id": "1b1058eb75b649d6a782e11655727794",
         "environment": "sandbox",
         "release": "dummy-app@0.1.0",
         "public_key": "00000000000000000000000000000000",
-        "sample_rand": "0.863488"
+        "sample_rand": "0.344922"
       }
     },
     "runtime": {
@@ -264,7 +264,7 @@
           "card_pan": "4532-7788-9900-1234",
           "card_cvv": "842"
         },
-        "timestamp": "2026-11-17T20:21:03.937294Z",
+        "timestamp": "2026-11-18T11:46:14.796114Z",
         "type": "default"
       }
     ]
@@ -320,8 +320,8 @@
       "user-agent": "testclient",
       "authorization": "[Filtered]",
       "x-customer-cpf": "123.456.789-00",
-      "sentry-trace": "52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9",
-      "baggage": "sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
+      "sentry-trace": "1b1058eb75b649d6a782e11655727794-815a71613cd582f3",
+      "baggage": "sentry-trace_id=1b1058eb75b649d6a782e11655727794,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
     },
     "query_string": "user_email=test.user@enterprise.io",
     "url": "http://testserver/api/scenarios/discount-bug",

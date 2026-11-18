@@ -77,11 +77,11 @@
                     ],
                     [
                       "b'sentry-trace'",
-                      "b'52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9'"
+                      "b'1b1058eb75b649d6a782e11655727794-815a71613cd582f3'"
                     ],
                     [
                       "b'baggage'",
-                      "b'sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000'"
+                      "b'sentry-trace_id=1b1058eb75b649d6a782e11655727794,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000'"
                     ]
                   ],
                   "client": [
@@ -109,7 +109,7 @@
                     }
                   ]
                 },
-                "scope": "<Scope id=0x787867b23b40 name=None type=ScopeType.CURRENT>",
+                "scope": "<Scope id=0x7df27bf3d540 name=None type=ScopeType.CURRENT>",
                 "exc": "AttributeError(\"'NoneType' object has no attribute 'strip'\")"
               },
               "in_app": true
@@ -268,8 +268,8 @@
       }
     ]
   },
-  "event_id": "b7f9459451324f39a3bd539e21978794",
-  "timestamp": "2026-11-17T20:21:04.064954Z",
+  "event_id": "23998a77bacf460f9e49901ff12b8efe",
+  "timestamp": "2026-11-18T11:46:14.887566Z",
   "contexts": {
     "http_request_pii": {
       "url": "http://testserver/api/scenarios/breadcrumb-flood?user_email=test.user@enterprise.io",
@@ -283,8 +283,8 @@
         "user-agent": "testclient",
         "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.test.signature",
         "x-customer-cpf": "123.456.789-00",
-        "sentry-trace": "52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9",
-        "baggage": "sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
+        "sentry-trace": "1b1058eb75b649d6a782e11655727794-815a71613cd582f3",
+        "baggage": "sentry-trace_id=1b1058eb75b649d6a782e11655727794,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
       },
       "query_params": {
         "user_email": "test.user@enterprise.io"
@@ -309,15 +309,15 @@
       }
     },
     "trace": {
-      "trace_id": "52fe942b8da2455d8b6af77ba02ceaa8",
-      "span_id": "80ac0743dccdc27a",
-      "parent_span_id": "82707abe80e3d7a9",
+      "trace_id": "1b1058eb75b649d6a782e11655727794",
+      "span_id": "92376c02911036c7",
+      "parent_span_id": "815a71613cd582f3",
       "dynamic_sampling_context": {
-        "trace_id": "52fe942b8da2455d8b6af77ba02ceaa8",
+        "trace_id": "1b1058eb75b649d6a782e11655727794",
         "environment": "sandbox",
         "release": "dummy-app@0.1.0",
         "public_key": "00000000000000000000000000000000",
-        "sample_rand": "0.863488"
+        "sample_rand": "0.344922"
       }
     },
     "runtime": {
@@ -353,7 +353,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062245Z",
+        "timestamp": "2026-11-18T11:46:14.885425Z",
         "type": "default"
       },
       {
@@ -365,7 +365,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062256Z",
+        "timestamp": "2026-11-18T11:46:14.885435Z",
         "type": "default"
       },
       {
@@ -377,7 +377,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062263Z",
+        "timestamp": "2026-11-18T11:46:14.885441Z",
         "type": "default"
       },
       {
@@ -389,7 +389,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062275Z",
+        "timestamp": "2026-11-18T11:46:14.885448Z",
         "type": "default"
       },
       {
@@ -401,7 +401,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062283Z",
+        "timestamp": "2026-11-18T11:46:14.885455Z",
         "type": "default"
       },
       {
@@ -413,7 +413,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062290Z",
+        "timestamp": "2026-11-18T11:46:14.885461Z",
         "type": "default"
       },
       {
@@ -425,7 +425,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062298Z",
+        "timestamp": "2026-11-18T11:46:14.885469Z",
         "type": "default"
       },
       {
@@ -437,7 +437,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062305Z",
+        "timestamp": "2026-11-18T11:46:14.885476Z",
         "type": "default"
       },
       {
@@ -449,7 +449,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062312Z",
+        "timestamp": "2026-11-18T11:46:14.885483Z",
         "type": "default"
       },
       {
@@ -461,7 +461,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062319Z",
+        "timestamp": "2026-11-18T11:46:14.885490Z",
         "type": "default"
       },
       {
@@ -473,7 +473,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062332Z",
+        "timestamp": "2026-11-18T11:46:14.885498Z",
         "type": "default"
       },
       {
@@ -485,7 +485,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062341Z",
+        "timestamp": "2026-11-18T11:46:14.885505Z",
         "type": "default"
       },
       {
@@ -497,7 +497,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062349Z",
+        "timestamp": "2026-11-18T11:46:14.885512Z",
         "type": "default"
       },
       {
@@ -509,7 +509,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062357Z",
+        "timestamp": "2026-11-18T11:46:14.885519Z",
         "type": "default"
       },
       {
@@ -521,7 +521,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062369Z",
+        "timestamp": "2026-11-18T11:46:14.885527Z",
         "type": "default"
       },
       {
@@ -533,7 +533,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062378Z",
+        "timestamp": "2026-11-18T11:46:14.885532Z",
         "type": "default"
       },
       {
@@ -545,7 +545,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062386Z",
+        "timestamp": "2026-11-18T11:46:14.885536Z",
         "type": "default"
       },
       {
@@ -557,7 +557,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062394Z",
+        "timestamp": "2026-11-18T11:46:14.885540Z",
         "type": "default"
       },
       {
@@ -569,7 +569,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062403Z",
+        "timestamp": "2026-11-18T11:46:14.885544Z",
         "type": "default"
       },
       {
@@ -581,7 +581,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062411Z",
+        "timestamp": "2026-11-18T11:46:14.885548Z",
         "type": "default"
       },
       {
@@ -593,7 +593,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062419Z",
+        "timestamp": "2026-11-18T11:46:14.885552Z",
         "type": "default"
       },
       {
@@ -605,7 +605,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062427Z",
+        "timestamp": "2026-11-18T11:46:14.885556Z",
         "type": "default"
       },
       {
@@ -617,7 +617,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062435Z",
+        "timestamp": "2026-11-18T11:46:14.885567Z",
         "type": "default"
       },
       {
@@ -629,7 +629,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062443Z",
+        "timestamp": "2026-11-18T11:46:14.885571Z",
         "type": "default"
       },
       {
@@ -641,7 +641,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062451Z",
+        "timestamp": "2026-11-18T11:46:14.885575Z",
         "type": "default"
       },
       {
@@ -653,7 +653,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062459Z",
+        "timestamp": "2026-11-18T11:46:14.885579Z",
         "type": "default"
       },
       {
@@ -665,7 +665,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062467Z",
+        "timestamp": "2026-11-18T11:46:14.885583Z",
         "type": "default"
       },
       {
@@ -677,7 +677,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062476Z",
+        "timestamp": "2026-11-18T11:46:14.885588Z",
         "type": "default"
       },
       {
@@ -689,7 +689,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062486Z",
+        "timestamp": "2026-11-18T11:46:14.885592Z",
         "type": "default"
       },
       {
@@ -701,7 +701,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062494Z",
+        "timestamp": "2026-11-18T11:46:14.885596Z",
         "type": "default"
       },
       {
@@ -713,7 +713,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062504Z",
+        "timestamp": "2026-11-18T11:46:14.885600Z",
         "type": "default"
       },
       {
@@ -725,7 +725,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062512Z",
+        "timestamp": "2026-11-18T11:46:14.885604Z",
         "type": "default"
       },
       {
@@ -737,7 +737,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062521Z",
+        "timestamp": "2026-11-18T11:46:14.885608Z",
         "type": "default"
       },
       {
@@ -749,7 +749,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062529Z",
+        "timestamp": "2026-11-18T11:46:14.885613Z",
         "type": "default"
       },
       {
@@ -761,7 +761,7 @@
           "batch_id": "BATCH-SETTLE-20261117",
           "status": "WAITING_LOCK"
         },
-        "timestamp": "2026-11-17T20:21:04.062538Z",
+        "timestamp": "2026-11-18T11:46:14.885621Z",
         "type": "default"
       },
       {
@@ -775,7 +775,7 @@
           "ssn": "689-12-3341",
           "bearer_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt"
         },
-        "timestamp": "2026-11-17T20:21:04.062548Z",
+        "timestamp": "2026-11-18T11:46:14.885630Z",
         "type": "default"
       },
       {
@@ -788,7 +788,7 @@
           "card_number": "4111-2222-3333-4444",
           "bearer_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.robert.secret.jwt"
         },
-        "timestamp": "2026-11-17T20:21:04.062560Z",
+        "timestamp": "2026-11-18T11:46:14.885639Z",
         "type": "default"
       }
     ]
@@ -844,8 +844,8 @@
       "user-agent": "testclient",
       "authorization": "[Filtered]",
       "x-customer-cpf": "123.456.789-00",
-      "sentry-trace": "52fe942b8da2455d8b6af77ba02ceaa8-82707abe80e3d7a9",
-      "baggage": "sentry-trace_id=52fe942b8da2455d8b6af77ba02ceaa8,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
+      "sentry-trace": "1b1058eb75b649d6a782e11655727794-815a71613cd582f3",
+      "baggage": "sentry-trace_id=1b1058eb75b649d6a782e11655727794,sentry-environment=sandbox,sentry-release=dummy-app%400.1.0,sentry-public_key=00000000000000000000000000000000"
     },
     "query_string": "user_email=test.user@enterprise.io",
     "url": "http://testserver/api/scenarios/breadcrumb-flood",
